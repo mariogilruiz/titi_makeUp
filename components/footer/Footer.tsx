@@ -4,16 +4,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full h-50 bg-black text-white">
+    <footer className="w-full bg-black text-white">
       <div className="h-full max-w-6xl mx-auto px-6 py-6 flex flex-col justify-between">
         <div>
-          <p className="text-xl font-semibold">Nuria Makeup</p>
+          <p className="text-xl font-semibold">Nuria Jiménez Makeup</p>
+          <div className="flex justify-start w-full py-2">
+            <div className="w-40 h-0.5 bg-white " />
+          </div>
           <p className="text-sm text-gray-300 mt-1">
             Maquillaje profesional para bodas y eventos en Valencia.
           </p>
         </div>
 
-        <div className="text-sm text-gray-300 leading-6">
+        <div className="text-sm text-gray-300 leading-6 ">
           <p>Email: hola@nuriamakeup.com</p>
           <p>
             WhatsApp:
@@ -30,16 +33,22 @@ export default function Footer() {
             <Link href="/aviso-legal" className="underline hover:text-white">
               Aviso legal
             </Link>
-            <Link href="/politica-privacidad" className="underline hover:text-white">
+            <Link
+              href="/politica-privacidad"
+              className="underline hover:text-white"
+            >
               Politica de privacidad
             </Link>
-            <Link href="/politica-cookies" className="underline hover:text-white">
+            <Link
+              href="/politica-cookies"
+              className="underline hover:text-white"
+            >
               Politica de cookies
             </Link>
           </div>
         </div>
 
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-gray-400 pt-5 text-center">
           © {currentYear} Nuria Makeup. Todos los derechos reservados.
         </p>
       </div>

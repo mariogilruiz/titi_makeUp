@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { HomeData } from "@/types/content";
 import "animate.css";
+import Link from "next/link";
 
 type HeroSectionProps = {
   datas: HomeData;
@@ -32,17 +33,19 @@ export default function Hero_section({ datas }: HeroSectionProps) {
       <div
         className={`Hero_info flex w-full justify-center flex-col px-9  lg:w-2/5`}
       >
-        <h1 className="text-4xl  font-light pt-9 md:pt-3 ">{hero?.heading}</h1>
-        <div className="w-20 h-2 bg-red-700 my-6 "/>
+        <h1 className="text-4xl  font-light pt-9 md:pt-3 pb-5 ">
+          {hero?.heading}
+        </h1>
+        {/* <div className="w-20 h-2 bg-white my-6 " /> */}
         {hero.body.map((item, index) => (
           <h2 className="mt-1 text-lg font-mono" key={`${hero?.key}-${index}`}>
             {item}
           </h2>
         ))}
         <div className="flex w-full justify-center p-2 md:mt-20">
-          <button className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer">
+          <Link href="/contact?from=hero" className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer">
             Consultar disponibilidad
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -29,12 +29,16 @@ export default function Section_05() {
   return (
     <>
       <div id="INVITADAS" className="scroll-mt-24" data-aos="fade-right">
-        <Card_services_w_full dataCardServices={dataCardServices_01} />
+        <Card_services_w_full
+          dataCardServices={dataCardServices_01}
+          contactSource="invitadas"
+        />
       </div>
       <div id="CURSOS" className="scroll-mt-24" data-aos="fade-left">
         <Card_services_w_full
           dataCardServices={dataCardServices_02}
           reverse={true}
+          contactSource="cursos"
         />
       </div>
     </>

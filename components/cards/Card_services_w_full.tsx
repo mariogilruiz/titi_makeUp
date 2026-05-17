@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type CardServicesData = {
   h2?: string;
@@ -8,9 +9,11 @@ type CardServicesData = {
 export default function Card_services_w_full({
   dataCardServices,
   reverse = false,
+  contactSource = "home-services",
 }: {
   dataCardServices: CardServicesData;
   reverse?: boolean;
+  contactSource?: string;
 }) {
   return (
     <div
@@ -40,9 +43,12 @@ export default function Card_services_w_full({
           ))}
         </div>
         <div className="pt-4">
-          <button className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer">
+          <Link
+            href={`/contact?from=${encodeURIComponent(contactSource)}`}
+            className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer"
+          >
             Más información
-          </button>
+          </Link>
         </div>
       </div>
     </div>

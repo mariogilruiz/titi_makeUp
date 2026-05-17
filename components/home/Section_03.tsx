@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Section_03() {
   const dataCardServices = [
@@ -40,7 +41,7 @@ export default function Section_03() {
               Servicios Novia
             </h3>
             <div className="flex justify-start w-full">
-              <div className="w-20 h-2 bg-red-700 my-6 " />
+              <div className="w-20 h-2 bg-white my-6 " />
             </div>
 
             <div className="p-3">
@@ -52,9 +53,12 @@ export default function Section_03() {
               ))}
             </div>
             <div className="pt-4">
-              <button className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer">
+              <Link
+                href="/contact?from=novias"
+                className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer"
+              >
                 Contacar con nuria
-              </button>
+              </Link>
             </div>
           </div>
         </div>
