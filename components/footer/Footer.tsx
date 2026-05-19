@@ -7,7 +7,9 @@ export default function Footer() {
     <footer className="w-full bg-black text-white">
       <div className="h-full max-w-6xl mx-auto px-6 py-6 flex flex-col justify-between">
         <div>
-          <p className="text-xl font-semibold">Nuria Jiménez Makeup</p>
+          <p className="text-xl font-semibold font-logo uppercase">
+            Nuria Jiménez Makeup
+          </p>
           <div className="flex justify-start w-full py-2">
             <div className="w-40 h-0.5 bg-white " />
           </div>

@@ -2,25 +2,23 @@ import "server-only";
 import type { HomeData } from "@/types/content";
 
 export async function getPageData(slug: string): Promise<HomeData> {
-  const baseUrl = process.env.API_BASE_URL;
-
-  if (!baseUrl) {
-    throw new Error("Missing API_BASE_URL environment variable");
-  }
-
   if (!slug) {
     throw new Error("Missing slug parameter");
   }
 
-  const url = `${baseUrl}data/${slug}`;
+  // Detectar si estamos en el servidor o cliente
+  const isServer = typeof window === "undefined";
+  // Cambia la URL según el entorno
+  const url = isServer
+    ? `http://localhost:3000/api/proxy?slug=${encodeURIComponent(slug)}`
+    : `/api/proxy?slug=${encodeURIComponent(slug)}`;
 
   const response = await fetch(url, {
     method: "GET",
     headers: {
-    Accept: "application/json",
-    "x-api-key": process.env.API_SECRET || "",
-  },
-    // // next: { revalidate: 86400 }, // Revalidate every 24 hours
+      Accept: "application/json",
+    },
+    // next: { revalidate: 86400 }, // Revalidate every 24 hours
   });
 
   if (!response.ok) {
@@ -30,6 +28,5 @@ export async function getPageData(slug: string): Promise<HomeData> {
   return (await response.json()) as HomeData;
 }
 
-export async function getHomeData(): Promise<HomeData> {
-  return getPageData("home");
-}
+
+

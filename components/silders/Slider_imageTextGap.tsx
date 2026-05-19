@@ -14,7 +14,6 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 type SliderImage = {
   src: string;
-  alt: string;
   text?: string;
 };
 
@@ -50,7 +49,10 @@ export default function Slider_imageTextGap({
             <div className="relative h-115 overflow-hidden  md:h-130 lg:h-140">
               <Image
                 src={image.src}
-                alt={image.alt + " - " + (image.text || "")}
+                alt={
+                  image.text +
+                  " - Nuaria Jiménez Makeup de bodas y eventos en Valencia"
+                }
                 fill
                 loading="eager"
                 className="object-cover"

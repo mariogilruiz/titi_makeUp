@@ -32,6 +32,7 @@ export default function Section_05() {
         <Card_services_w_full
           dataCardServices={dataCardServices_01}
           contactSource="invitadas"
+          src="/api/proxy-image/home/foto-section_03_services.jpg"
         />
       </div>
       <div id="CURSOS" className="scroll-mt-24" data-aos="fade-left">
@@ -39,6 +40,7 @@ export default function Section_05() {
           dataCardServices={dataCardServices_02}
           reverse={true}
           contactSource="cursos"
+          src="/api/proxy-image/home/foto-section_03_services.jpg"
         />
       </div>
     </>

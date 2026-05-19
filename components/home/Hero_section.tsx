@@ -22,7 +22,7 @@ export default function Hero_section({ datas }: HeroSectionProps) {
         className={`hero_iamge z-10 heroImage animate__animated animate__slideInLeft animate__fast relative min-h-[50dvh] w-full  lg:w-3/5 overflow-hidden`}
       >
         <Image
-          src="/assets/images/home/foto-hero.jpg"
+          src="/api/proxy-image/home/foto-hero.jpg"
           alt="Maquillaje profesional"
           fill
           className="object-cover"
@@ -43,7 +43,10 @@ export default function Hero_section({ datas }: HeroSectionProps) {
           </h2>
         ))}
         <div className="flex w-full justify-center p-2 md:mt-20">
-          <Link href="/contact?from=hero" className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer">
+          <Link
+            href="/contact?from=hero"
+            className=" bg-black font-mono text-white text-lg md:text-2xl font-medium px-4 py-2 my-4 lg:my-0 rounded shadow uppercase hover:bg-black/60 duration-300 cursor-pointer"
+          >
             Consultar disponibilidad
           </Link>
         </div>

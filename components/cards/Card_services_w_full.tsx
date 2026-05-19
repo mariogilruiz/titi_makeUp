@@ -10,10 +10,12 @@ export default function Card_services_w_full({
   dataCardServices,
   reverse = false,
   contactSource = "home-services",
+  src,
 }: {
   dataCardServices: CardServicesData;
   reverse?: boolean;
   contactSource?: string;
+  src: string;
 }) {
   return (
     <div
@@ -21,7 +23,7 @@ export default function Card_services_w_full({
     >
       <div className="CARD_SERVICES_IMAGE flex overflow-hidden relative h-[500] w-1/2">
         <Image
-          src="/assets/images/home/foto-section_03_services.jpg"
+          src={src}
           alt="Maquillaje profesional"
           fill
           className="object-cover"

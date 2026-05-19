@@ -25,7 +25,7 @@ export default function Section_03() {
         <div className="CARD_SERVICES w-[900] flex flex-col md:flex-row bg-gray-200">
           <div className="w-full md:w-1/2 flex overflow-hidden relative h-[400] md:order-2">
             <Image
-              src="/assets/images/home/foto-section_03_services.jpg"
+              src="/api/proxy-image/home/foto-section_03_services.jpg"
               alt="Maquillaje profesional"
               fill
               className="object-cover"
