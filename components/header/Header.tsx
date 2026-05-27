@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -44,8 +46,18 @@ export default function Header() {
         </button>
 
         <ul className="hidden md:flex items-center gap-6 text-sm md:text-base text-white uppercase font-mono">
+          {pathname !== "/" && (
+            <li>
+              <Link href="/" className="hover:text-gray-300">
+                Home
+              </Link>
+            </li>
+          )}
           <li className="relative group py-2">
-            <button type="button" className="cursor-pointer uppercase">
+            <button
+              type="button"
+              className="cursor-pointer uppercase hover:text-gray-300"
+            >
               Servicios
             </button>
             <div className="absolute right-0 top-full mt-1 min-w-52 bg-black/95 border border-white/20 opacity-0 invisible transition-opacity duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible">
@@ -89,8 +101,11 @@ export default function Header() {
           }`}
         >
           <ul className="px-4 py-4 text-white uppercase font-mono text-sm space-y-3">
-            <li className="pb-2 border-b border-white/10">
-              <p className="mb-2">Servicios</p>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li className="pb-2 border-b border-white/10 ">
+              <p className="mb-2 ">Servicios</p>
               <div className="pl-3 flex flex-col gap-2 text-white/80">
                 <Link href="/#NOVIAS" onClick={closeMenu}>
                   Novias

@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,12 +19,12 @@ type SliderImage = {
 };
 
 type SliderImageGapProps = {
-  dataSlider: Record<string, SliderImage>;
+  dataSlider: SliderImage[];
 };
-
 export default function Slider_imageTextGap({
   dataSlider,
 }: SliderImageGapProps) {
+  // // console.log("hola soy dataSlider", dataSlider);
   return (
     <div className="w-full">
       <Swiper
@@ -44,7 +45,7 @@ export default function Slider_imageTextGap({
         modules={[Navigation, Autoplay]}
         className="mySwiper pb-10"
       >
-        {Object.values(dataSlider).map((image) => (
+        {dataSlider.map((image) => (
           <SwiperSlide key={image.src}>
             <div className="relative h-115 overflow-hidden  md:h-130 lg:h-140">
               <Image

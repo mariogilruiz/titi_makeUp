@@ -21,27 +21,30 @@ export default function Hero_section({ datas }: HeroSectionProps) {
       <div
         className={`hero_iamge z-10 heroImage animate__animated animate__slideInLeft animate__fast relative min-h-[50dvh] w-full  lg:w-3/5 overflow-hidden`}
       >
-        <Image
+        <img
           src="/api/proxy-image/home/foto-hero.jpg"
           alt="Maquillaje profesional"
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover object-top w-full h-full absolute inset-0"
           loading="eager"
         />
       </div>
       <div
-        className={`Hero_info flex w-full justify-center flex-col px-9  lg:w-2/5`}
+        className={`Hero_info flex w-full justify-center flex-col  lg:w-2/5`}
       >
-        <h1 className="text-4xl  font-light pt-9 md:pt-3 pb-5 ">
-          {hero?.heading}
-        </h1>
-        {/* <div className="w-20 h-2 bg-white my-6 " /> */}
-        {hero.body.map((item, index) => (
-          <h2 className="mt-1 text-lg font-mono" key={`${hero?.key}-${index}`}>
-            {item}
-          </h2>
-        ))}
+        <div className="px-9 ">
+          <h1 className="text-4xl  font-light pt-9 md:pt-3 pb-5 ">
+            {hero?.heading}
+          </h1>
+          {/* <div className="w-20 h-2 bg-white my-6 " /> */}
+          {hero.body?.map((item, index) => (
+            <h2
+              className="mt-1 text-lg font-mono"
+              key={`${hero?.key}-${index}`}
+            >
+              {item}
+            </h2>
+          ))}
+        </div>
         <div className="flex w-full justify-center p-2 md:mt-20">
           <Link
             href="/contact?from=hero"

@@ -1,38 +1,47 @@
 "use client";
 
+import { HomeSection } from "@/types/content";
 import Card_services_w_full from "../cards/Card_services_w_full";
 
-export default function Section_05() {
-  const dataCardServices_01 = {
-    h2: "Servicio de Invitada o social",
-    text: [
-      "Asesoramiento previo al servicio",
-      "Atencion personalizada)",
-      "Maquillaje profesional para el día de la boda o evento",
-      "Prueba de maquillaje (Opcional)",
-      "Pestañas postizas",
-      "Servicio a domicilio (Casa, hotel, masia)",
-    ],
+type SectionProps = {
+  data: HomeSection;
+};
+
+export default function Section_05({ data }: SectionProps) {
+  // // console.log("hola soy data de section05", data);
+
+  const emptyCard = {
+    services: [],
+    src: "",
+    text: "",
+    h3: "",
   };
 
-  const dataCardServices_02 = {
-    h2: "cursos de automaquillaje",
-    text: [
-      "Asesoramiento previo al servicio",
-      "Atencion personalizada)",
-      "Maquillaje profesional para el día de la boda o evento",
-      "Prueba de maquillaje (Opcional)",
-      "Pestañas postizas",
-      "Servicio a domicilio (Casa, hotel, masia)",
-    ],
-  };
+  const dataCardServices_01 = (data.cards || [])[0]
+    ? {
+        ...(data.cards || [])[0],
+        services: (data.cards || [])[0].services || [],
+        src: (data.cards || [])[0].src || "",
+        text: (data.cards || [])[0].text || "",
+        h3: (data.cards || [])[0].h3 || "",
+      }
+    : emptyCard;
+
+  const dataCardServices_02 = (data.cards || [])[1]
+    ? {
+        ...(data.cards || [])[1],
+        services: (data.cards || [])[1].services || [],
+        src: (data.cards || [])[1].src || "",
+        text: (data.cards || [])[1].text || "",
+        h3: (data.cards || [])[1].h3 || "",
+      }
+    : emptyCard;
   return (
     <>
       <div id="INVITADAS" className="scroll-mt-24" data-aos="fade-right">
         <Card_services_w_full
           dataCardServices={dataCardServices_01}
           contactSource="invitadas"
-          src="/api/proxy-image/home/foto-section_03_services.jpg"
         />
       </div>
       <div id="CURSOS" className="scroll-mt-24" data-aos="fade-left">
@@ -40,7 +49,6 @@ export default function Section_05() {
           dataCardServices={dataCardServices_02}
           reverse={true}
           contactSource="cursos"
-          src="/api/proxy-image/home/foto-section_03_services.jpg"
         />
       </div>
     </>

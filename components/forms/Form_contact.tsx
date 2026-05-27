@@ -25,9 +25,9 @@ const sourceMessages: Record<string, string> = {
   default: "Me gustaría recibir información sobre tus servicios.",
 };
 
-const CONTACT_ENDPOINT =
-  process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "http://localhost:4000/contact";
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "605426375";
+const CONTACT_ENDPOINT = "/api/proxy?slug=contact";
+const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_TELEPHONE_NUMBER ?? "+34645598843";
 
 function normalizeSource(from: string | string[] | undefined): string {
   if (Array.isArray(from)) {
@@ -71,7 +71,7 @@ export default function Form_contact() {
       "",
       normalizedMessage,
       "",
-      `[meta] source=${sourceKey} (${sourceLabel})`,
+      // Meta eliminado del WhatsApp
     ];
 
     const whatsappText = textLines.filter(Boolean).join("\n");
@@ -110,8 +110,6 @@ export default function Form_contact() {
     setFeedback("");
 
     try {
-      const messageWithMeta = `${normalizedMessage}\n\n[meta] source=${sourceKey} (${sourceLabel})`;
-
       const payload: {
         name: string;
         email: string;
@@ -120,7 +118,7 @@ export default function Form_contact() {
       } = {
         name: normalizedName,
         email: normalizedEmail,
-        message: messageWithMeta,
+        message: normalizedMessage,
       };
 
       if (normalizedPhone) {
@@ -163,8 +161,10 @@ export default function Form_contact() {
 
   const isNameValid = name.trim().length >= 2;
   return (
-    <section className="relative z-10 max-w-3xl mx-auto bg-white rounded-lg shadow p-6 md:p-10">
-      <h1 className="text-3xl md:text-4xl font-light mb-3">Contacto</h1>
+    <section className="relative z-10 max-w-3xl mx-auto bg-white  #shadow p-6 md:p-10">
+      <h1 className="text-3xl md:text-4xl font-light mb-3 text-center">
+        Contacto
+      </h1>
       <p className="text-sm md:text-base text-gray-700 mb-6 font-mono">
         Elige como quieres contactar y completa un formulario rapido.
       </p>
@@ -178,7 +178,7 @@ export default function Form_contact() {
               setStatus("idle");
               setFeedback("");
             }}
-            className="inline-flex justify-center items-center bg-blue-600 text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm hover:bg-blue-700 transition-colors"
+            className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
           >
             Quiero enviar Email
           </button>
@@ -189,7 +189,7 @@ export default function Form_contact() {
               setStatus("idle");
               setFeedback("");
             }}
-            className="inline-flex justify-center items-center bg-[#1f9d52] text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm hover:bg-[#198347] transition-colors"
+            className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
           >
             Quiero enviar WhatsApp
           </button>
@@ -314,7 +314,7 @@ export default function Form_contact() {
               }}
               className="inline-flex bg-gray-300 text-gray-800 px-5 py-3 rounded font-mono font-bold uppercase text-sm hover:bg-gray-400 transition-colors"
             >
-              Cambiar opcion
+              Cambiar opción
             </button>
           </div>
         </form>

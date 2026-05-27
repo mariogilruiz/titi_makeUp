@@ -1,37 +1,48 @@
-export default function Content_sobreMi() {
+import { AboutData } from "@/types/content";
+import Image from "next/image";
+
+interface ContentSobreMiProps {
+  datas: AboutData;
+}
+
+export default function Content_sobreMi({ datas }: ContentSobreMiProps) {
   return (
-    <main className="w-full min-h-screen bg-neutral-100 pt-28 pb-16">
-      <section className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-light text-black">Sobre mi</h1>
-        <div className="w-20 h-2 bg-white my-6" />
+    <main className="w-full min-h-screen relative">
+      <section className=" min-h-screen w-full mx-auto px-6 container flex flex-col items-center text-center py-30">
+        <Image
+          src="/api/proxy-image/sobre-mi/foto-sobre-mi.jpg"
+          alt="Maquilladora profesional Nuria Gimenez"
+          fill
+          className="absolute inset-0 w-full h-full grayscale opacity-40 object-cover object-center"
+          priority
+        />
+        <h1 className="text-4xl md:text-5xl font-light text-black pb-20">
+          {datas.title}
+        </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <article className="space-y-5 text-base leading-7 text-neutral-800">
-            <p>
-              Soy Nuria Gimenez, maquilladora profesional especializada en
-              maquillaje social y de novia en Valencia.
-            </p>
-            <p>
-              Me enfoco en crear looks elegantes, luminosos y naturales,
-              adaptados a tus rasgos, estilo y tipo de evento para que te
-              sientas tu misma, pero en tu mejor version.
-            </p>
-            <p>
-              Trabajo con asesoramiento personalizado, preparacion previa de la
-              piel y tecnicas de larga duracion para que el maquillaje se
-              mantenga impecable durante todo el dia.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Imagen sobre mí */}
+          <div className="w-full flex justify-center md:justify-end">
+            <div className="relative w-full h-96 md:h-128 overflow-hidden">
+              <Image
+                src="/api/proxy-image/sobre-mi/foto-sobre-mi.jpg"
+                alt="Maquilladora profesional Nuria Gimenez"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 100vw, 420px"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Texto sobre mí */}
+          <article className="space-y-5 text-base leading-7 text-neutral-800 ">
+            {datas.sections.map((paragraph, idx) => (
+              <p key={idx} className="font-mono">
+                {paragraph}
+              </p>
+            ))}
           </article>
-
-          <aside className="bg-white border border-neutral-200 p-6 shadow-sm">
-            <h2 className="text-2xl font-semibold text-black">Mi enfoque</h2>
-            <ul className="mt-4 space-y-3 text-neutral-700">
-              <li>Atencion cercana y personalizada.</li>
-              <li>Maquillaje adaptado a tu piel y estilo.</li>
-              <li>Acabados naturales con tecnica profesional.</li>
-              <li>Calma, orden y confianza en todo el proceso.</li>
-            </ul>
-          </aside>
         </div>
       </section>
     </main>
