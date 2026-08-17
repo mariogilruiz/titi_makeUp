@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Newsreader, Roboto } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  DM_Serif_Display,
+  Inter,
+  Newsreader,
+  Roboto,
+} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 
-const primaryFont = Newsreader({
+const primaryFont = Cormorant_Garamond({
   variable: "--font-primary",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
-const secondaryFont = Roboto({
+const secondaryFont = Inter({
   variable: "--font-secondary",
   weight: ["400", "500", "700"],
   subsets: ["latin"],

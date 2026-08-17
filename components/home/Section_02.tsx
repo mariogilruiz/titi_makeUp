@@ -51,14 +51,14 @@ export default function Section_02({ datas }: Section_02Props) {
 
   // console.log("hlaaa", sectionData);
   return (
-    <section className="w-full flex flex-col justify-center items-center pt-20">
+    <section className="w-full flex flex-col justify-center items-center pt-10">
       <div className="w-full flex flex-col justify-center items-center">
-        <div className="w-full flex justify-center p-4">
+        {/* <div className="w-full flex justify-center p-4">
           <span className="text-2xl border-4 p-2 rounded-lg">soy logo</span>
-        </div>
-        <div className="w-full flex justify-center container mx-auto px-4 text-center pb-28 pt-5">
+        </div> */}
+        <div className="w-full flex justify-center container mx-auto px-4 text-center pb-10 pt-5">
           <h2
-            className="text-4xl font-light"
+            className="text-2xl sm:text-xl font-light uppercase"
             dangerouslySetInnerHTML={{ __html: sectionData?.heading ?? "" }}
           />
         </div>

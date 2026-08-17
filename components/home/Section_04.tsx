@@ -1,18 +1,20 @@
 "use client";
 
 import { HomeSection } from "@/types/content";
-import Slider_imageTextGap from "../silders/Slider_imageTextGap";
+import Content_sections_home from "../containers/Content_sections_home";
 
 type SectionProps = {
   data: HomeSection;
+  border?: "border" | "underline";
+  effect?: "fade-right" | "fade-left" | "fade-up" | "fade-down" | "fade-in";
 };
 
-export default function Section_04({ data }: SectionProps) {
-  // // console.log("hola soy data de section04", data);
-
+export default function Section_04({
+  data,
+  border = "underline",
+  effect = "fade-left",
+}: SectionProps) {
   return (
-    <section className="w-full mt-10 md:mt-20 bg-black p-10">
-      <Slider_imageTextGap dataSlider={data.cards || []} />
-    </section>
+    <Content_sections_home data={data} buttonStyle={border} effect={effect} />
   );
 }

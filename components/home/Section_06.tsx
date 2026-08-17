@@ -9,10 +9,10 @@ type SectionProps = {
   effect?: "fade-right" | "fade-left" | "fade-up" | "fade-down" | "fade-in";
 };
 
-export default function Section_03({
+export default function Section_06({
   data,
-  border = "border",
-  effect = "fade-right",
+  border = "underline",
+  effect = "fade-down",
 }: SectionProps) {
   return (
     <Content_sections_home data={data} buttonStyle={border} effect={effect} />

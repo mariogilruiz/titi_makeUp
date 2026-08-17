@@ -11,7 +11,9 @@ export interface Personal {
 }
 // Nueva interfaz para HomeData según el nuevo formato
 export interface HomeSectionCard {
-  src: string;
+  heading?: string;
+  body?: string;
+  src?: string;
   text?: string;
   h3?: string;
   services?: string[];
@@ -21,11 +23,13 @@ export interface HomeSection {
   key: string;
   heading?: string;
   src?: string;
+  image?: string;
   body?: string[];
   order: number;
   h3?: string;
   services?: string[];
   cards?: HomeSectionCard[];
+  image_position?:string
 }
 
 export interface HomeData {

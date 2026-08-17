@@ -7,6 +7,7 @@ import Section_03 from "./Section_03";
 import Section_04 from "./Section_04";
 import Section_05 from "./Section_05";
 import { HomeData } from "@/types/content";
+import Section_06 from "./Section_06";
 
 type ContentAOSProps = {
   datas: HomeData;
@@ -26,12 +27,28 @@ export default function Content_AOS({ datas }: ContentAOSProps) {
   const section03 = datas.sections.find((s) => s.key === "section_03");
   const section04 = datas.sections.find((s) => s.key === "section_04");
   const section05 = datas.sections.find((s) => s.key === "section_05");
+  const section06 = datas.sections.find((s) => s.key === "section_06");
 
   return (
     <>
-      {section03 && <Section_03 data={section03} />}
-      {section04 && <Section_04 data={section04} />}
-      {section05 && <Section_05 data={section05} />}
+      <div className="bg-gray-200">
+        {section03 && (
+          <Section_03 data={section03} border="border" effect="fade-left" />
+        )}
+      </div>
+
+      {section04 && (
+        <Section_04 data={section04} border="underline" effect="fade-right" />
+      )}
+      <div className="bg-gray-200">
+        {section05 && (
+          <Section_05 data={section05} border="border" effect="fade-left" />
+        )}
+      </div>
+
+      {section06 && (
+        <Section_06 data={section06} border="underline" effect="fade-right" />
+      )}
     </>
   );
 }

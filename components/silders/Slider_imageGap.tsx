@@ -26,11 +26,11 @@ export default function Slider_imageGap({ dataSlider }: SliderImageGapProps) {
     <div className="w-full">
       <Swiper
         slidesPerView={1.15}
-        spaceBetween={16}
+        spaceBetween={5}
         breakpoints={{
-          640: { slidesPerView: 1.5, spaceBetween: 16 },
-          768: { slidesPerView: 2.2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 24 },
+          640: { slidesPerView: 1.5, spaceBetween: 5 },
+          768: { slidesPerView: 2.2, spaceBetween: 5 },
+          1024: { slidesPerView: 3, spaceBetween: 5 },
         }}
         pagination={{
           clickable: true,
@@ -44,7 +44,7 @@ export default function Slider_imageGap({ dataSlider }: SliderImageGapProps) {
       >
         {Object.values(dataSlider).map((image) => (
           <SwiperSlide key={image.src}>
-            <div className="relative h-115 overflow-hidden  md:h-130 lg:h-140">
+            <div className="relative h-100 overflow-hidden #md:h-100 #lg:h-100">
               <Image
                 src={image.src}
                 alt={image.alt}

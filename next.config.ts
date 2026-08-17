@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["*.ngrok-free.app", "*.ngrok.io"],
   images: {
+    qualities: [75, 100],
     remotePatterns: [
       {
         protocol: "https",

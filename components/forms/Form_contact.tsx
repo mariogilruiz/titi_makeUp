@@ -162,7 +162,7 @@ export default function Form_contact() {
   const isNameValid = name.trim().length >= 2;
   return (
     <section className="relative z-10 max-w-3xl mx-auto bg-white  #shadow p-6 md:p-10">
-      <h1 className="text-3xl md:text-4xl font-light mb-3 text-center">
+      <h1 className="text-3xl md:text-4xl font-light mb-3 text-center uppercase ">
         Contacto
       </h1>
       <p className="text-sm md:text-base text-gray-700 mb-6 font-mono">
@@ -180,7 +180,7 @@ export default function Form_contact() {
             }}
             className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
           >
-            Quiero enviar Email
+            Enviar Email
           </button>
           <button
             type="button"
@@ -191,7 +191,7 @@ export default function Form_contact() {
             }}
             className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
           >
-            Quiero enviar WhatsApp
+            Enviar WhatsApp
           </button>
         </div>
       ) : null}

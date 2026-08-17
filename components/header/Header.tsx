@@ -11,11 +11,11 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full h-20 bg-black shadow">
+    <header className="fixed top-0 left-0 z-50 w-full h-12 bg-black shadow">
       <nav className="h-full max-w-6xl mx-auto px-4 flex items-center justify-between">
         <Link
           href="/"
-          className="font-logo text-3xl md:text-4xl text-white uppercase"
+          className="font-logo text-xl #md:text-2xl text-white uppercase"
           onClick={closeMenu}
         >
           Nuria Jiménez<span className="text-white">.</span>
@@ -45,7 +45,7 @@ export default function Header() {
           />
         </button>
 
-        <ul className="hidden md:flex items-center gap-6 text-sm md:text-base text-white uppercase font-mono">
+        <ul className="hidden md:flex items-center gap-6 md:text-sm text-white uppercase font-mono font-semibold ">
           {pathname !== "/" && (
             <li>
               <Link href="/" className="hover:text-gray-300">
@@ -60,7 +60,7 @@ export default function Header() {
             >
               Servicios
             </button>
-            <div className="absolute right-0 top-full mt-1 min-w-52 bg-black/95 border border-white/20 opacity-0 invisible transition-opacity duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible">
+            <div className="absolute right-0 top-full min-w-52 bg-black/95 border border-white/20 opacity-0 invisible transition-opacity duration-150 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible">
               <Link
                 href="/#NOVIAS"
                 className="block px-4 py-2 hover:bg-white/10"
@@ -73,13 +73,12 @@ export default function Header() {
               >
                 Invitadas
               </Link>
-              <Link
-                href="/#CURSOS"
-                className="block px-4 py-2 hover:bg-white/10"
-              >
-                Cursos
-              </Link>
             </div>
+          </li>
+          <li>
+            <Link href="/galeria" className="hover:text-gray-300">
+              Galería
+            </Link>
           </li>
           <li>
             <Link href="/sobre-mi" className="hover:text-gray-300">
@@ -94,7 +93,7 @@ export default function Header() {
         </ul>
 
         <div
-          className={`md:hidden absolute top-20 left-0 w-full bg-black border-t border-white/10 transition-all duration-300 ${
+          className={`md:hidden absolute top-12 left-0 w-full bg-black border-t border-white/10 transition-all duration-300 ${
             isMenuOpen
               ? "opacity-100 visible translate-y-0"
               : "opacity-0 invisible -translate-y-2"
@@ -113,14 +112,16 @@ export default function Header() {
                 <Link href="/#INVITADAS" onClick={closeMenu}>
                   Invitadas
                 </Link>
-                <Link href="/#CURSOS" onClick={closeMenu}>
-                  Cursos
-                </Link>
               </div>
             </li>
             <li>
               <Link href="/sobre-mi" onClick={closeMenu}>
                 Sobre mi
+              </Link>
+            </li>
+            <li>
+              <Link href="/galeria" onClick={closeMenu}>
+                Galería
               </Link>
             </li>
             <li>
