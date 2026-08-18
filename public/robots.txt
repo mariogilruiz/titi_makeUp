@@ -1,4 +1,11 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Host: www.nuriajimenezmakeup.es
+Sitemap: https://www.nuriajimenezmakeup.es/sitemap.xml

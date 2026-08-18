@@ -40,6 +40,11 @@ function normalizeSource(from: string | string[] | undefined): string {
 type SubmitState = "idle" | "loading" | "success" | "error";
 type Channel = "email" | "whatsapp";
 
+const hoverSweepBaseClass =
+  "relative overflow-hidden before:absolute before:inset-y-0 before:left-0 before:w-0 before:transition-all before:duration-300 before:ease-out before:z-0 hover:before:w-full";
+const hoverSweepDarkClass = `${hoverSweepBaseClass} before:bg-white/20`;
+const hoverSweepLightClass = `${hoverSweepBaseClass} before:bg-black/10`;
+
 export default function Form_contact() {
   const searchParams = useSearchParams();
   const sourceKey = normalizeSource(searchParams.get("from") ?? undefined);
@@ -162,7 +167,7 @@ export default function Form_contact() {
   const isNameValid = name.trim().length >= 2;
   return (
     <section className="relative z-10 max-w-3xl mx-auto bg-white  #shadow p-6 md:p-10">
-      <h1 className="text-3xl md:text-4xl font-light mb-3 text-center uppercase ">
+      <h1 className="text-2xl sm:text-3xl font-light mb-3 text-center uppercase ">
         Contacto
       </h1>
       <p className="text-sm md:text-base text-gray-700 mb-6 font-mono">
@@ -178,9 +183,9 @@ export default function Form_contact() {
               setStatus("idle");
               setFeedback("");
             }}
-            className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
+            className={`inline-flex cursor-pointer justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm ${hoverSweepDarkClass}`}
           >
-            Enviar Email
+            <span className="relative z-10">Enviar Email</span>
           </button>
           <button
             type="button"
@@ -189,9 +194,9 @@ export default function Form_contact() {
               setStatus("idle");
               setFeedback("");
             }}
-            className="inline-flex justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm  hover:bg-black/60 transition-colors"
+            className={`inline-flex cursor-pointer justify-center items-center bg-black text-white px-5 py-4 rounded font-mono font-bold uppercase text-sm ${hoverSweepDarkClass}`}
           >
-            Enviar WhatsApp
+            <span className="relative z-10">Enviar WhatsApp</span>
           </button>
         </div>
       ) : null}
@@ -281,16 +286,18 @@ export default function Form_contact() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex bg-blue-600 text-white px-5 py-3 rounded font-mono font-bold uppercase text-sm hover:bg-blue-700 transition-colors disabled:opacity-60"
+                className={`inline-flex cursor-pointer bg-blue-600 text-white px-5 py-3 rounded font-mono font-bold uppercase text-sm disabled:opacity-60 disabled:cursor-not-allowed ${hoverSweepDarkClass}`}
               >
-                {status === "loading" ? "Enviando..." : "Enviar Email"}
+                <span className="relative z-10">
+                  {status === "loading" ? "Enviando..." : "Enviar Email"}
+                </span>
               </button>
             ) : (
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex bg-[#1f9d52] text-white px-5 py-3 rounded font-mono font-bold uppercase text-sm hover:bg-[#198347] cursor-pointer transition-colors"
+                className={`inline-flex bg-[#1f9d52] text-white px-5 py-3 rounded font-mono font-bold uppercase text-sm cursor-pointer ${hoverSweepDarkClass}`}
                 onClick={(e) => {
                   setWaTouched(true);
                   if (!isNameValid) {
@@ -301,7 +308,7 @@ export default function Form_contact() {
                   }
                 }}
               >
-                Continuar a WhatsApp
+                <span className="relative z-10">Continuar a WhatsApp</span>
               </a>
             )}
 
@@ -312,9 +319,9 @@ export default function Form_contact() {
                 setStatus("idle");
                 setFeedback("");
               }}
-              className="inline-flex bg-gray-300 text-gray-800 px-5 py-3 rounded font-mono font-bold uppercase text-sm hover:bg-gray-400 transition-colors"
+              className={`inline-flex cursor-pointer bg-gray-300 text-gray-800 px-5 py-3 rounded font-mono font-bold uppercase text-sm ${hoverSweepLightClass}`}
             >
-              Cambiar opción
+              <span className="relative z-10">Cambiar opcion</span>
             </button>
           </div>
         </form>

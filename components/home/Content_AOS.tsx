@@ -8,6 +8,7 @@ import Section_04 from "./Section_04";
 import Section_05 from "./Section_05";
 import { HomeData } from "@/types/content";
 import Section_06 from "./Section_06";
+import Button_basic from "../buttons/Button_basic";
 
 type ContentAOSProps = {
   datas: HomeData;
@@ -31,7 +32,7 @@ export default function Content_AOS({ datas }: ContentAOSProps) {
 
   return (
     <>
-      <div className="bg-gray-200">
+      <div id="NOVIAS" className="bg-gray-200">
         {section03 && (
           <Section_03 data={section03} border="border" effect="fade-left" />
         )}
@@ -40,7 +41,11 @@ export default function Content_AOS({ datas }: ContentAOSProps) {
       {section04 && (
         <Section_04 data={section04} border="underline" effect="fade-right" />
       )}
-      <div className="bg-gray-200">
+      <div className="flex w-full justify-center p-2  mb-10">
+        <Button_basic />
+      </div>
+
+      <div id="INVITADAS" className="bg-gray-200">
         {section05 && (
           <Section_05 data={section05} border="border" effect="fade-left" />
         )}

@@ -16,7 +16,7 @@ export default function Content_sobreMi({ datas }: ContentSobreMiProps) {
           className="absolute inset-0 w-full h-full grayscale opacity-40 object-cover object-right"
           priority
         />
-        <h1 className="text-4xl md:text-5xl uppercase font-light text-black pb-20 z-10 pt-5 md:pt-10">
+        <h1 className="text-2xl sm:text-3xl uppercase font-light text-black pb-20 z-10 pt-5 md:pt-10">
           {datas.title}
         </h1>
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { HomeData } from "@/types/content";
 import "animate.css";
 import Link from "next/link";
+import Button_basic from "../buttons/Button_basic";
 
 type HeroSectionProps = {
   datas: HomeData;
@@ -35,7 +36,7 @@ export default function Hero_section({ datas }: HeroSectionProps) {
         className={`Hero_info flex w-full justify-center flex-col  lg:w-2/5`}
       >
         <div className="px-9 ">
-          <h1 className="text-3xl uppercase  font-light pt-9 md:pt-3 pb-5 ">
+          <h1 className="text-2xl sm:text-3xl text-center uppercase  font-light pt-9 md:pt-3 pb-5 ">
             {hero?.heading}
           </h1>
           {/* <div className="w-20 h-2 bg-white my-6 " /> */}
@@ -46,12 +47,7 @@ export default function Hero_section({ datas }: HeroSectionProps) {
           ))}
         </div>
         <div className="flex w-full justify-center p-2 mt-5 mb-2 md:mt-20 ">
-          <Link
-            href="/contact?from=hero"
-            className="relative overflow-hidden border-2 border-black font-mono text-black text-sm md:text-lg #md:text-2xl font-medium px-3 py-1 my-3 lg:my-0 rounded shadow uppercase cursor-pointer before:absolute before:inset-y-0 before:left-0 before:w-0 before:bg-black/10 before:transition-all before:duration-300 before:ease-out before:z-0 hover:before:w-full"
-          >
-            <span className="relative z-10">solicitar información</span>
-          </Link>
+          <Button_basic />
         </div>
       </div>
     </section>

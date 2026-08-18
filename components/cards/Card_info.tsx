@@ -31,7 +31,7 @@ export default function Card_info({
           isBorder ? "border-2 border-black" : "border-b-2 border-black/80",
         ].join(" ")}
       >
-        <h2 className="text-lg uppercase tracking-[0.08em] font-medium text-black">
+        <h2 className="text-sm uppercase tracking-[0.08em] font-medium text-black">
           {cardTitle}
         </h2>
       </div>

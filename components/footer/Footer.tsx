@@ -71,9 +71,9 @@ export default async function Footer() {
           </div>
         </div>
         <div className="py-2 md:py-5" />
-        <p className="text-xs text-gray-400 pt-5 text-center">
+        {/* <p className="text-xs text-gray-400 pt-5 text-center">
           © {currentYear} Nuria Makeup. Todos los derechos reservados.
-        </p>
+        </p> */}
       </div>
     </footer>
   );
